@@ -1,0 +1,28 @@
+{
+  "name": "diving-into-portals",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "0-demo-links": "http-server 0-demo-links",
+    "1-demo-portals": "http-server 1-demo-portals",
+    "2-simple-navigation": "http-server 2-simple-navigation",
+    "3-animations": "http-server 3-animations",
+    "4-a11y": "http-server 4-a11y",
+    "5-customize-in-portal": "http-server 5-customize-in-portal",
+    "6-loop-navigation": "http-server 6-loop-navigation"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tibing/diving-into-portals.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tibing/diving-into-portals/issues"
+  },
+  "homepage": "https://github.com/Tibing/diving-into-portals#readme",
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
+}
