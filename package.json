@@ -4,14 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "http-server .",
+    "start": "http-server . & npm run blog",
     "0-demo-links": "http-server 0-demo-links",
     "1-demo-portals": "http-server 1-demo-portals",
     "2-simple-navigation": "http-server 2-simple-navigation",
     "3-animations": "http-server 3-animations",
     "4-a11y": "http-server 4-a11y",
     "5-customize-in-portal": "http-server 5-customize-in-portal",
-    "6-loop-navigation": "http-server 6-loop-navigation"
+    "6-loop-navigation": "http-server 6-loop-navigation",
+    "blog": "npm --prefix portals/demos/portal-embed-demo run demo",
+    "copy-drive-demo": "cat drive-with-portal/index.js | pbcopy"
   },
   "repository": {
     "type": "git",
