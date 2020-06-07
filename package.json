@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "http-server .",
     "0-demo-links": "http-server 0-demo-links",
     "1-demo-portals": "http-server 1-demo-portals",
     "2-simple-navigation": "http-server 2-simple-navigation",
