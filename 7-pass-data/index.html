@@ -1,0 +1,92 @@
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  portal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    transform: scale(0.4);
+    transform-origin: bottom left;
+    bottom: 20px;
+    left: 20px;
+    transition: all 0.4s;
+    outline: none;
+    opacity: 0;
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+  }
+
+  portal:hover {
+    box-shadow: -2px 14px 58px 7px rgba(0, 0, 0, 0.75);
+  }
+
+  .portal-reveal {
+    transform: scale(1.0) translateX(-20px) translateY(20px);
+  }
+
+  input {
+    position: fixed;
+    top: 2rem;
+    left: 1rem;
+    font-size: 3rem;
+    width: calc(100vw - 2rem);
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+</style>
+<img src="assets/cat.jpg">
+<portal src="dog.html"></portal>
+<input placeholder="Give me data to pass into Portal">
+
+<script>
+  const portal = document.querySelector('portal');
+
+  portal.addEventListener('click', (e) => {
+    portal.classList.add('portal-reveal');
+  })
+  portal.addEventListener('transitionend', evt => {
+    if (evt.propertyName == 'transform') {
+
+      const input = document.querySelector('input');
+
+      portal.activate({ data: input.value });
+    }
+  });
+
+  window.addEventListener('portalactivate', evt => {
+    const portal = evt.adoptPredecessor();
+    document.body.appendChild(portal);
+
+    portal.addEventListener('click', (e) => {
+      portal.classList.add('portal-reveal');
+    })
+
+    portal.addEventListener('transitionend', evt => {
+      if (evt.propertyName == 'transform') {
+        // Activate the portal once the transition has completed
+        portal.activate();
+      }
+    });
+  });
+</script>

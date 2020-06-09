@@ -1,0 +1,85 @@
+<link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  img {
+    width: 100vw;
+    height: 1000vh;
+  }
+
+  h1 {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    color: white;
+    font-family: 'Chelsea Market', cursive;
+    font-size: 5rem;
+  }
+
+  portal {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    border-radius: 1rem;
+    transform-origin: bottom left;
+    bottom: 20px;
+    left: 20px;
+    transition: all 0.4s;
+    outline: none;
+    opacity: 0;
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+  }
+
+  portal:hover {
+    box-shadow: -2px 14px 58px 7px rgba(0, 0, 0, 0.75);
+  }
+
+  .portal-reveal {
+    transform: scale(1.0) translateX(-20px) translateY(20px);
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+</style>
+<img src="assets/cat.jpg">
+<portal data-src="dog.html"></portal>
+<h1>Outstretched cat</h1>
+
+<script>
+  const portal = document.querySelector('portal');
+
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        portal.src = portal.dataset.src;
+      }
+    }
+  });
+
+  observer.observe(portal);
+
+  portal.addEventListener('click', (e) => {
+    portal.classList.add('portal-reveal');
+  })
+  portal.addEventListener('transitionend', evt => {
+    if (evt.propertyName == 'transform') {
+      // Activate the portal once the transition has completed
+      portal.activate();
+    }
+  });
+</script>

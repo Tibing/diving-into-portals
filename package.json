@@ -12,6 +12,7 @@
     "4-a11y": "http-server 4-a11y",
     "5-customize-in-portal": "http-server 5-customize-in-portal",
     "6-loop-navigation": "http-server 6-loop-navigation",
+    "7-pass-data": "http-server 7-pass-data",
     "blog": "npm --prefix portals/demos/portal-embed-demo run demo",
     "copy-drive-demo": "cat drive-with-portal/index.js | pbcopy"
   },

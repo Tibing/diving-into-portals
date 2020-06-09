@@ -2,14 +2,14 @@ const style = document.createElement('style');
 style.innerHTML = `
   portal {
     position:fixed;
-    width: 513.75px;
-    height: 425px;
+    width: 595.75px;
+    height: 475px;
     border-radius: 1rem;
     opacity: 0;
     transform: scale(0.4);
     transform-origin: top left;
     top: 350px;
-    left: 929.5px;
+    left: 1027.984375px;
     animation-name: fade-in;
     animation-duration: 1s;
     animation-delay: 2s;
@@ -49,3 +49,4 @@ portal.addEventListener('transitionend', evt => {
   }
 });
 document.body.append(style, portal);
+
